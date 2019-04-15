@@ -111,6 +111,11 @@ Any number of components can use `<google-maps-api>` elements, and the library w
     _computeUrl: function(mapsUrl, version, apiKey, clientId, language, signedIn) {
       var url = mapsUrl + '&v=' + version;
 
+      if(window.overrideGoogleMapsKey) {
+        apiKey = window.overrideGoogleMapsKey;
+        this.apiKey = window.overrideGoogleMapsKey;
+      }
+
       // Always load all Maps API libraries.
       url += '&libraries=drawing,geometry,places,visualization';
 
